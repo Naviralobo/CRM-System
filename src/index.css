@@ -4,6 +4,19 @@
   --color-sidebar-bg: oklch(71.4% 0.203 305.504);
   --color-logo: oklch(25.7% 0.09 281.288);
   --color-btn-bg: oklch(25.7% 0.09 281.288);
-  --color-btn-light: oklch(70% 0.203 305.504);
+  --color-btn-light: #fff;
   --color-card-bg: oklch(97.7% 0.014 308.299);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
 }
