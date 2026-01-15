@@ -13,7 +13,7 @@ const navClass = ({ isActive }: NavClassArgs): string => {
 const SideBar = () => {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden md:block p-4">
         <Logo />
       </div>
       <section className="flex-1 flex flex-col">
