@@ -1,5 +1,7 @@
+import LeadList from "../Components/LeadList";
+
 const Leads = () => {
-  return <div>Leads</div>;
+  return <LeadList />;
 };
 
 export default Leads;

@@ -12,7 +12,7 @@ const AppLayout = () => {
       <aside className="hidden md:flex basis-1/4 min-h-screen flex-col bg-sidebar-bg">
         <SideBar />
       </aside>
-      <main>
+      <main className="w-full">
         <Outlet />
       </main>
     </div>
