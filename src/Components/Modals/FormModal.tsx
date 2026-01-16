@@ -159,7 +159,7 @@ const FormModal = ({
                 onChange={handleFormData}
                 value={formData?.status}
               >
-                {leadStatus.map((status) => (
+                {leadStatus.slice(1).map((status) => (
                   <option key={status} value={status}>
                     {status}
                   </option>

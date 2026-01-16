@@ -9,3 +9,11 @@ export interface Lead {
   status?:string
 }
 
+export type FilterType =
+  | "All"
+  | "New"
+  | "Contacted"
+  | "Follow-up"
+  | "Converted"
+  | "Lost";
+

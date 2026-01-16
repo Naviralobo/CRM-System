@@ -1,13 +1,25 @@
-import { FunnelIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { leadStatus } from "../helpers/variables";
+import { setFilter } from "../store/leadSlice";
+import type { FilterType } from "../types/Lead";
 const FilterLead = () => {
+  const dispatch = useDispatch();
+  const filterChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(setFilter(e.target.value as FilterType));
+  };
   return (
-    <div className="flex gap-2 items-center justify-between px-2 border-2 border-sidebar-bg rounded-md">
-      <div className="flex items-center gap-2">
-        <FunnelIcon className="h-4 text-sidebar-bg" />
-        <span className="hidden md:inline w-25">status</span>
-      </div>
-      <ChevronDownIcon className="h-4 text-sidebar-bg mt-1" />
-    </div>
+    <select
+      name="status"
+      aria-label="status"
+      className=" flex gap-2  items-center justify-between px-2 border-2 border-sidebar-bg rounded-md"
+      onChange={filterChangeHandler}
+    >
+      {leadStatus.map((status) => (
+        <option key={status} value={status} className="p-2">
+          {status}
+        </option>
+      ))}
+    </select>
   );
 };
 

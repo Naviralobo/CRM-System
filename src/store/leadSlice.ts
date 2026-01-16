@@ -1,10 +1,18 @@
-import type { Lead } from "../types/Lead";
+import type { FilterType, Lead } from "../types/Lead";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const storedLeads = localStorage.getItem("leads");
 
-const initialState: { leads: Lead[] } = {
+interface StateType {
+  leads: Lead[];
+  search: string;
+  filter: FilterType;
+}
+
+const initialState: StateType = {
   leads: storedLeads ? JSON.parse(storedLeads) : [],
+  search: "",
+  filter: "All",
 };
 
 const leadSlice = createSlice({
@@ -27,8 +35,15 @@ const leadSlice = createSlice({
       if (index !== -1) state.leads.splice(index, 1, payload);
       localStorage.setItem("leads", JSON.stringify(state.leads));
     },
+    setFilter: (state, { payload }: PayloadAction<FilterType>) => {
+      state.filter = payload;
+    },
+    setSearch: (state, { payload }: PayloadAction<string>) => {
+      state.search = payload;
+    },
   },
 });
 
-export const { addLead, deleteLead, updateLead } = leadSlice.actions;
+export const { addLead, deleteLead, updateLead, setFilter, setSearch } =
+  leadSlice.actions;
 export default leadSlice.reducer;

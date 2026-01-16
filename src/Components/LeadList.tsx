@@ -1,15 +1,34 @@
 import { useSelector } from "react-redux";
 import LeadCard from "./LeadCard";
 import type { RootState } from "../store/store";
+import { useMemo } from "react";
 
 const LeadList = () => {
   const leads = useSelector((state: RootState) => state.leads.leads);
+  const search = useSelector((state: RootState) => state.leads.search);
+  const filter = useSelector((state: RootState) => state.leads.filter);
+
+  const filteredLeads = useMemo(() => {
+    let leadsCopy = leads;
+    if (filter !== "All") {
+      leadsCopy = leadsCopy.filter((lead) => lead.status === filter);
+    }
+    if (search.trim()) {
+      leadsCopy = leadsCopy.filter(
+        (lead) =>
+          lead.name.toLowerCase().includes(search.toLowerCase()) ||
+          lead.username.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    return leadsCopy;
+  }, [leads, search, filter]);
+
   return (
     <div className="grid w-full lg:grid-cols-3 sm:grid-cols-2  gap-3 p-4 ">
-      {leads.map((lead) => (
+      {filteredLeads.map((lead) => (
         <LeadCard key={lead.id} lead={lead} />
       ))}
-  </div>
+    </div>
   );
 };
 
