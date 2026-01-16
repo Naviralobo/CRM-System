@@ -66,7 +66,7 @@ const FormModal = ({
     <>
       {openFormModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 animate-fade-in ">
-          <div className="bg-white w-full max-w-sm m-2 md:max-w-md rounded-lg p-6">
+          <div className="bg-bg w-full max-w-sm m-2 md:max-w-md rounded-lg p-6">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold text-center">{`${
                 type === "add" ? "Add" : "Edit"

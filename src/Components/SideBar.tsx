@@ -7,7 +7,7 @@ interface NavClassArgs {
 const navBase =
   "p-3 md:p-4 rounded text-md md:text-xl transition-colors duration-500 ";
 const navClass = ({ isActive }: NavClassArgs): string => {
-  return `${navBase} ${isActive ? "bg-btn-bg text-btn-light" : ""}`;
+  return `${navBase} ${isActive ? "bg-btn-bg text-sidebar-text" : ""}`;
 };
 
 const SideBar = () => {

@@ -11,7 +11,7 @@ const Button = ({ children, onClick, type }: ButtonProps) => {
     <button
       onClick={onClick}
       type={type}
-      className="text-btn-light bg-btn-bg p-3 rounded-md cursor-pointer hover:translate-px"
+      className="text-btn-text bg-btn-bg p-3 rounded-md cursor-pointer hover:translate-px"
     >
       {children}
     </button>

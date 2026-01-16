@@ -11,7 +11,7 @@ const FilterLead = () => {
     <select
       name="status"
       aria-label="status"
-      className=" flex gap-2  items-center justify-between px-2 border-2 border-sidebar-bg rounded-md"
+      className=" flex gap-2  items-center justify-between px-2 border-2 border-input-border bg-input-bg rounded-md"
       onChange={filterChangeHandler}
     >
       {leadStatus.map((status) => (

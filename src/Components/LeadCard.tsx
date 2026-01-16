@@ -44,9 +44,9 @@ const LeadCard = ({ lead }: LeadCardProps) => {
   };
 
   return (
-    <div className="border-2 border-sidebar-bg rounded-xl p-2 bg-card-bg">
+    <div className="border-2 border-card-border rounded-xl p-2 bg-card-bg">
       <div className=" flex justify-between">
-        <div className="text-sidebar-bg font-bold">{lead.username}</div>
+        <div className="text-card-head font-bold">{lead.username}</div>
         <div className="flex gap-2">
           <PencilSquareIcon
             className="h-5 cursor-pointer text-blue-700 transition-transform hover:scale-110"
@@ -79,7 +79,7 @@ const LeadCard = ({ lead }: LeadCardProps) => {
           aria-label="status"
           onChange={changeStatusHandler}
           value={lead?.status || "All"}
-          className="border rounded-md border-sidebar-bg"
+          className="border rounded-md border-input-border"
         >
           {leadStatus.map((status) => (
             <option key={status} value={status}>

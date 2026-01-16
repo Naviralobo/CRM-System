@@ -5,7 +5,7 @@ import MobileHeader from "../Components/MobileHeader";
 
 const AppLayout = () => {
   return (
-    <div className="block md:flex">
+    <div className="block md:flex bg-bg text-text">
       <header className=" bg-sidebar-bg md:hidden">
         <MobileHeader />
       </header>

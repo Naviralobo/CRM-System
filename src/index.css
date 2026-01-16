@@ -1,12 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sidebar-bg: oklch(71.4% 0.203 305.504);
-  --color-logo: oklch(25.7% 0.09 281.288);
-  --color-btn-bg: oklch(25.7% 0.09 281.288);
-  --color-btn-light: #fff;
-  --color-card-bg: oklch(97.7% 0.014 308.299);
+  /* Base */
+  --color-bg: oklch(99% 0.01 250);
+  --color-text: oklch(20% 0.02 260);
+
+  /* Sidebar */
+  --color-sidebar-bg: oklch(62% 0.17 255);
+  --color-sidebar-text: oklch(98% 0 0);
+
+  /* Brand / Logo */
+  --color-logo: oklch(99% 0.01 250);
+
+  /* Buttons */
+  --color-btn-bg: oklch(38% 0.18 260);
+  --color-btn-text: oklch(98% 0 0);
+  --color-btn-hover: oklch(32% 0.2 260);
+
+  /* Cards */
+  --color-card-bg: oklch(97% 0.01 250);
+  --color-card-border: oklch(90% 0.02 250);
+  --color-card-head: oklch(38% 0.18 260);
+
+  /* Inputs */
+  --color-input-bg: oklch(100% 0 0);
+  --color-input-border: oklch(88% 0.02 250);
 }
+
+.dark {
+  /* Base */
+  --color-bg: oklch(10% 0.01 260); /* deep navy-black */
+  --color-text: oklch(96% 0 0);
+
+  /* Sidebar */
+  --color-sidebar-bg: oklch(18% 0.06 260);
+  --color-sidebar-text: oklch(96% 0 0);
+
+  /* Brand / Logo */
+  --color-logo: oklch(72% 0.18 260);
+
+  /* Buttons */
+  --color-btn-bg: oklch(72% 0.18 260);
+  --color-btn-text: oklch(10% 0 0);
+  --color-btn-hover: oklch(66% 0.2 260);
+
+  /* Cards */
+  --color-card-bg: oklch(16% 0.02 260);
+  --color-card-border: oklch(26% 0.02 260);
+  --color-card-head: oklch(96% 0 0);
+
+  /* Inputs */
+  --color-input-bg: oklch(14% 0.01 260);
+  --color-input-border: oklch(28% 0.02 260);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

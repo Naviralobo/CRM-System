@@ -13,7 +13,7 @@ const DeleteModal = ({
     <>
       {openDeleteModal && (
         <div className="fixed inset-0 bg-black/40 z-50 flex justify-center items-center w-full h-full">
-          <div className="flex-flex-col bg-white w-fit max-w-md p-4 text-center rounded-xl ">
+          <div className="flex-flex-col bg-bg w-fit max-w-md p-4 text-center rounded-xl ">
             <div>Are you Sure you want to delete?</div>
             <div className="flex gap-4 w-full justify-center mt-5">
               <Button onClick={confirmDelete}>Delete</Button>
