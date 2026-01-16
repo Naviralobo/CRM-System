@@ -69,6 +69,11 @@ const LeadCard = ({ lead }: LeadCardProps) => {
       <div>
         <span className="font-bold">status:</span> leadStatus
       </div>
+      {lead.notes && (
+        <div>
+          <span className="font-bold">notes: {lead.notes}</span> leadStatus
+        </div>
+      )}
       <FormModal
         openFormModal={openFormModal}
         setOpenFormModal={setOpenFormModal}
@@ -77,7 +82,7 @@ const LeadCard = ({ lead }: LeadCardProps) => {
       <DeleteModal
         openDeleteModal={openDeleteModal}
         confirmDelete={confirmDeleteHandler}
-        cancelDelete ={cancelDeleteHandler}
+        cancelDelete={cancelDeleteHandler}
       />
     </div>
   );
