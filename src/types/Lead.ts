@@ -7,3 +7,13 @@ export interface Lead {
   website: string;
   notes?: string;
 }
+
+export interface FormData {
+  username: string;
+  email: string;
+  phone: string;
+  name: string;
+  source: string;
+  status: string;
+  notes?: string;
+}
