@@ -11,7 +11,7 @@ const SearchLead = () => {
     <input
       type="text"
       placeholder="Search leads..."
-      className="rounded-md border-2 border-input-border bg-input-bg p-2 md:flex-1"
+      className="rounded-md border-2 border-input-border w-1/2 bg-input-bg p-2 md:flex-1"
       onChange={searchChangeHandler}
     />
   );
