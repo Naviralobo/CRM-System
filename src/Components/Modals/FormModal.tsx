@@ -1,33 +1,37 @@
 import { useState } from "react";
 import { leadsSource, leadStatus } from "../../helpers/variables";
-import type { FormData } from "../../types/Lead";
+import type { Lead } from "../../types/Lead";
 import Button from "../Button";
 import { validateFormData } from "../../helpers/validations";
+import { useDispatch } from "react-redux";
+import { addLead, updateLead } from "../../store/leadSlice";
 
 interface FormModalProps {
   openFormModal: boolean;
   setOpenFormModal: React.Dispatch<React.SetStateAction<boolean>>;
-  formDataProp?: FormData;
+  formDataProp?: Lead;
+  type?: string;
 }
 
 const FormModal = ({
   openFormModal,
   setOpenFormModal,
   formDataProp,
+  type,
 }: FormModalProps) => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<Lead>({
+    id: formDataProp?.id,
     username: formDataProp?.username || "",
     email: formDataProp?.email || "",
     phone: formDataProp?.phone || "",
     name: formDataProp?.name || "",
-    source: formDataProp?.source || "Website",
+    website: formDataProp?.website || "Website",
     status: formDataProp?.status || "New",
     notes: formDataProp?.notes || "",
   });
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>(
-    {}
-  );
-  const inputClass = (fieldname: keyof FormData) =>
+  const [errors, setErrors] = useState<Partial<Record<keyof Lead, string>>>({});
+  const dispatch = useDispatch();
+  const inputClass = (fieldname: keyof Lead) =>
     `p-1 rounded-md border-2  ${
       errors[fieldname] ? "border-red-500" : "border-sidebar-bg"
     }`;
@@ -39,23 +43,23 @@ const FormModal = ({
     >
   ) => {
     const { name, value } = e.target;
-    if (value && errors[name as keyof FormData]) {
+    if (value && errors[name as keyof Lead]) {
       const newErrors = { ...errors };
-      delete newErrors[name as keyof FormData];
+      delete newErrors[name as keyof Lead];
       setErrors(newErrors);
     }
     setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = () => {
-    const newErrors: Partial<Record<keyof FormData, string>> =
+    const newErrors: Partial<Record<keyof Lead, string>> =
       validateFormData(formData);
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      console.log(formData);
+      type === "add"
+        ? dispatch(addLead(formData))
+        : dispatch(updateLead(formData));
       setOpenFormModal(false);
     }
-    console.log(formData, errors);
   };
 
   return (
@@ -64,7 +68,9 @@ const FormModal = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 animate-fade-in ">
           <div className="bg-white w-full max-w-sm m-2 md:max-w-md rounded-lg p-6">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-bold text-center">Add Lead</h2>
+              <h2 className="text-lg font-bold text-center">{`${
+                type === "add" ? "Add" : "Edit"
+              } Lead`}</h2>
               <button
                 type="button"
                 className="cursor-pointer px-1 rounded hover:border-2"
@@ -132,10 +138,10 @@ const FormModal = ({
               </label>
               <select
                 aria-label="Lead Source"
-                name="source"
-                className={inputClass("source")}
+                name="website"
+                className={inputClass("website")}
                 onChange={handleFormData}
-                value={formData?.source}
+                value={formData?.website}
               >
                 {leadsSource.map((source) => (
                   <option key={source} value={source}>
@@ -169,7 +175,7 @@ const FormModal = ({
               />
               <div className="flex justify-center">
                 <Button type="submit" onClick={handleSubmit}>
-                  Add Lead
+                  {`${type === "add" ? "Add" : "Edit"} Lead`}
                 </Button>
               </div>
             </div>

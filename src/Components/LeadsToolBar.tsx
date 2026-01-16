@@ -3,7 +3,6 @@ import Button from "./Button";
 import FilterLead from "./FilterLead";
 import SearchLead from "./SearchLead";
 import FormModal from "./Modals/FormModal";
-
 const LeadsToolBar = () => {
   const [openFormModal, setOpenFormModal] = useState(false);
 
@@ -21,12 +20,16 @@ const LeadsToolBar = () => {
         <Button onClick={handleAddLead}> + Add lead</Button>
       </div>
       {/* for mobile */}
-      <div className="fixed flex bg-btn-bg  text-btn-light rounded-full w-12 h-12 justify-center items-center bottom-2 right-2 md:hidden">
+      <div
+        onClick={handleAddLead}
+        className="fixed flex bg-btn-bg  text-btn-light rounded-full w-12 h-12 justify-center items-center bottom-2 right-2 md:hidden"
+      >
         +
       </div>
       <FormModal
         openFormModal={openFormModal}
         setOpenFormModal={setOpenFormModal}
+        type="add"
       />
     </div>
   );

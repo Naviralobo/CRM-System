@@ -12,7 +12,9 @@ const leadSlice = createSlice({
   initialState,
   reducers: {
     addLead: (state, { payload }: PayloadAction<Lead>) => {
-      state.leads.push(payload);
+      const newId = (state.leads.at(-1)?.id ?? 0) + 1;
+      const formDataToBeUpdated = { ...payload, id: newId };
+      state.leads.push(formDataToBeUpdated);
       localStorage.setItem("leads", JSON.stringify(state.leads));
     },
     deleteLead: (state, { payload }: PayloadAction<Lead>) => {

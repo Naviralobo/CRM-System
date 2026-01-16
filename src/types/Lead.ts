@@ -1,19 +1,11 @@
 export interface Lead {
-  id: number;
+  id?: number;
   username: string;
   email: string;
   phone: string;
   name: string;
-  website: string;
+  website?: string;
   notes?: string;
+  status?:string
 }
 
-export interface FormData {
-  username: string;
-  email: string;
-  phone: string;
-  name: string;
-  source: string;
-  status: string;
-  notes?: string;
-}
