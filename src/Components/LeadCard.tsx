@@ -8,7 +8,8 @@ import { useState } from "react";
 import FormModal from "./Modals/FormModal";
 import DeleteModal from "./Modals/DeleteModal";
 import { useDispatch } from "react-redux";
-import { deleteLead } from "../store/leadSlice";
+import { deleteLead, updateLead } from "../store/leadSlice";
+import { leadStatus } from "../helpers/variables";
 
 interface LeadCardProps {
   lead: Lead;
@@ -34,6 +35,12 @@ const LeadCard = ({ lead }: LeadCardProps) => {
   };
   const cancelDeleteHandler = () => {
     setOpenDeleteModal(false);
+  };
+
+  const changeStatusHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const leadCopy = { ...lead };
+    const newLead = { ...leadCopy, status: e.target.value };
+    dispatch(updateLead(newLead));
   };
 
   return (
@@ -67,7 +74,19 @@ const LeadCard = ({ lead }: LeadCardProps) => {
         <span className="font-bold">Source:</span> {lead.website}
       </div>
       <div>
-        <span className="font-bold">status:</span> leadStatus
+        <span className="font-bold">status: </span>
+        <select
+          aria-label="status"
+          onChange={changeStatusHandler}
+          value={lead?.status || "All"}
+          className="border rounded-md border-sidebar-bg"
+        >
+          {leadStatus.map((status) => (
+            <option key={status} value={status}>
+              {status}
+            </option>
+          ))}
+        </select>
       </div>
       {lead.notes && (
         <div>
