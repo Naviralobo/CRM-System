@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# CRM Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A CRM application that is built with responsiveness and user friendly features to manage customer relationship management
 
-Currently, two official plugins are available:
+## Project overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-The project is to handle customer relationship management in a structured way.
+-The initial data is collected from readonly api and stored in local storage.
+-All crud operation can be performed on Leads from the frontend
+-optimized search and filtering of leads
+-effective responsiveness and dark and light theme management for better UX
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### component based architecture
 
-Note: This will impact Vite dev & build performances.
+-Every block of code is made into separate components to reduce redundancy, increase readability and reusability
+-Structured as App, Layouts, Pages, Components
+-helpers, hooks, store, types, api for functionality support
+-index.css to handle css animations and theme
 
-## Expanding the ESLint configuration
+### App Layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-A common AppLayout with sidebar navigation for future advancements
+-a dashboard(to implement navigation) and leads page(where all functionalities are implementd)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Lead Management
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+-Add,edit and delete leads using a Lead modal form
+-auto-generated unique IDS
+-status update on each Lead
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Search and filter Leads
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-search by name or companyname
+-filter by status
+-optimized search and filter using useMemo
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### UI/UX
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+-responsive Layout
+-card based display
+-Light/Dark theme
+
+### state management
+
+-centralized state management using redux
+
+## Tech stack
+
+-React
+-Typescript
+-Redux tool kit
+-Heroicons
+-axios
+-React router dom
+-Tailwind css
+
+## run application
+
+-npm install to install dependencies
+-npm run dev to start the server
+-app runs on http://localhost:5173
+
+## screenshots
+
+### folder structure
+![Light Mode Desktop](./screenshots/light-mode.png)
+![Dark Mode Desktop](./screenshots/dark-mode.png)
+![Lead Form](./screenshots/modal-form.png)
+![Mobile View](./screenshots/mobile-view.png)
+![Lead Form with Error message](./screenshots/error-modal-form.png)
