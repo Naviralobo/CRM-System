@@ -1,6 +1,8 @@
 import { useState } from "react";
-import Logo from "./Logo";
+
 import { Bars3Icon } from "@heroicons/react/24/outline";
+
+import Logo from "./Logo";
 import SideBar from "./SideBar";
 const MobileHeader = () => {
   const [openDrawer, setOpenDrawer] = useState(false);

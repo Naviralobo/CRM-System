@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import Button from "../Button";
+
+import { validateFormData } from "../../helpers/validations";
 import { leadsSource, leadStatus } from "../../helpers/variables";
 import type { Lead } from "../../types/Lead";
-import Button from "../Button";
-import { validateFormData } from "../../helpers/validations";
-import { useDispatch } from "react-redux";
 import { addLead, updateLead } from "../../store/leadSlice";
 
 interface FormModalProps {
@@ -31,6 +33,7 @@ const FormModal = ({
   });
   const [errors, setErrors] = useState<Partial<Record<keyof Lead, string>>>({});
   const dispatch = useDispatch();
+
   const inputClass = (fieldname: keyof Lead) =>
     `p-1 rounded-md border-2  ${
       errors[fieldname] ? "border-red-500" : "border-sidebar-bg"
@@ -50,6 +53,7 @@ const FormModal = ({
     }
     setFormData({ ...formData, [name]: value });
   };
+  
   const handleSubmit = () => {
     const newErrors: Partial<Record<keyof Lead, string>> =
       validateFormData(formData);

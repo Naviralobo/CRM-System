@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
-import LeadCard from "./LeadCard";
-import type { RootState } from "../store/store";
 import { useMemo } from "react";
+
+import LeadCard from "./LeadCard";
+
+import type { RootState } from "../store/store";
 
 const LeadList = () => {
   const leads = useSelector((state: RootState) => state.leads.leads);

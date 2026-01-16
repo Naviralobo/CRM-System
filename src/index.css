@@ -51,7 +51,7 @@
 
   /* Inputs */
   --color-input-bg: oklch(14% 0.01 260);
-  --color-input-border: oklch(28% 0.02 260);
+  --color-input-border: oklch(56.733% 0.04043 262.688);
 }
 
 @keyframes fadeIn {

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+
 import useLocalStorage from "./useLocalStorage";
+
 import { fetchLeads } from "../api/fetchUser";
 import type { Lead } from "../types/Lead";
 

@@ -1,9 +1,12 @@
 import { useDispatch } from "react-redux";
+
 import { leadStatus } from "../helpers/variables";
 import { setFilter } from "../store/leadSlice";
 import type { FilterType } from "../types/Lead";
+
 const FilterLead = () => {
   const dispatch = useDispatch();
+
   const filterChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setFilter(e.target.value as FilterType));
   };

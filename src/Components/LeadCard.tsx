@@ -1,15 +1,18 @@
-import type { Lead } from "../types/Lead";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { PhoneIcon } from "@heroicons/react/24/outline";
 import { BuildingOfficeIcon } from "@heroicons/react/24/outline";
 import { PencilSquareIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+
 import FormModal from "./Modals/FormModal";
 import DeleteModal from "./Modals/DeleteModal";
-import { useDispatch } from "react-redux";
+
 import { deleteLead, updateLead } from "../store/leadSlice";
 import { leadStatus } from "../helpers/variables";
+import type { Lead } from "../types/Lead";
 
 interface LeadCardProps {
   lead: Lead;

@@ -1,9 +1,11 @@
 import Button from "../Button";
+
 interface DeleteModalProps {
   openDeleteModal: boolean;
   confirmDelete: () => void;
   cancelDelete: () => void;
 }
+
 const DeleteModal = ({
   openDeleteModal,
   confirmDelete,
