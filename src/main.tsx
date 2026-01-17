@@ -1,17 +1,20 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import { HashRouter } from "react-router-dom";
+
 import App from "./App.tsx";
+
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 
+import "./index.css";
+
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter basename="/CRM-System">
+  <HashRouter basename="/CRM-System">
     <StrictMode>
       <Provider store={store}>
         <App />
       </Provider>
     </StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 );
