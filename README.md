@@ -36,6 +36,9 @@ A CRM application that is built with responsiveness and user friendly features t
 -filter by status
 -optimized search and filter using useMemo
 
+### Export CSV
+-Lead data can be downloaded in the CSV format
+
 ### UI/UX
 
 -responsive Layout
