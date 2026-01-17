@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
-  <HashRouter basename="/CRM-System">
+  <HashRouter>
     <StrictMode>
       <Provider store={store}>
         <App />
