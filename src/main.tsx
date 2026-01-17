@@ -7,7 +7,7 @@ import { store } from "./store/store";
 import { Provider } from "react-redux";
 
 createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/CRM-System">
     <StrictMode>
       <Provider store={store}>
         <App />
