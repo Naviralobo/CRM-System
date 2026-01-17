@@ -133,7 +133,7 @@ const FormModal = ({
                 className={inputClass("name")}
                 onChange={handleFormData}
                 value={formData?.company}
-                name="name"
+                name="company"
               />
               <p className={errorClass}>{errors?.company}</p>
 
