@@ -130,7 +130,7 @@ const FormModal = ({
               <input
                 type="text"
                 placeholder="Company name"
-                className={inputClass("name")}
+                className={inputClass("company")}
                 onChange={handleFormData}
                 value={formData?.company}
                 name="company"
