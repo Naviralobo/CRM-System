@@ -28,7 +28,7 @@ const LeadsToolBar = () => {
       </div>
 
       {/* for large screens */}
-      <div className="hidden md:block">
+      <div className="hidden md:flex gap-2">
         <Button onClick={() => exportCSVHandler(leads)}> Export CSV</Button>
 
         <Button onClick={handleAddLead}> + Add lead</Button>
