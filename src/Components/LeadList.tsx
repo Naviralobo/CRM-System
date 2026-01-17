@@ -19,7 +19,7 @@ const LeadList = () => {
       leadsCopy = leadsCopy.filter(
         (lead) =>
           lead.name.toLowerCase().includes(search.toLowerCase()) ||
-          lead.username.toLowerCase().includes(search.toLowerCase())
+          lead.company.toLowerCase().includes(search.toLowerCase())
       );
     }
     return leadsCopy;

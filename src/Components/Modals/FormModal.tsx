@@ -23,10 +23,10 @@ const FormModal = ({
 }: FormModalProps) => {
   const [formData, setFormData] = useState<Lead>({
     id: formDataProp?.id,
-    username: formDataProp?.username || "",
+    name: formDataProp?.name || "",
     email: formDataProp?.email || "",
     phone: formDataProp?.phone || "",
-    name: formDataProp?.name || "",
+    company: formDataProp?.company || "",
     website: formDataProp?.website || "Website",
     status: formDataProp?.status || "New",
     notes: formDataProp?.notes || "",
@@ -53,7 +53,7 @@ const FormModal = ({
     }
     setFormData({ ...formData, [name]: value });
   };
-  
+
   const handleSubmit = () => {
     const newErrors: Partial<Record<keyof Lead, string>> =
       validateFormData(formData);
@@ -92,12 +92,12 @@ const FormModal = ({
               <input
                 type="text"
                 placeholder="Lead name"
-                className={inputClass("username")}
+                className={inputClass("name")}
                 onChange={handleFormData}
-                value={formData?.username}
-                name="username"
+                value={formData?.name}
+                name="name"
               />
-              <p className={errorClass}>{errors?.username}</p>
+              <p className={errorClass}>{errors?.name}</p>
               <label>
                 Email<span className="text-red-500">*</span>
               </label>
@@ -132,10 +132,10 @@ const FormModal = ({
                 placeholder="Company name"
                 className={inputClass("name")}
                 onChange={handleFormData}
-                value={formData?.name}
+                value={formData?.company}
                 name="name"
               />
-              <p className={errorClass}>{errors?.name}</p>
+              <p className={errorClass}>{errors?.company}</p>
 
               <label>
                 Source<span className="text-red-500">*</span>

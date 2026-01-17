@@ -24,7 +24,6 @@ const LeadCard = ({ lead }: LeadCardProps) => {
   const [openFormModal, setOpenFormModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const dispatch = useDispatch();
-
   const handleEdit = () => {
     setOpenFormModal((prev) => !prev);
   };
@@ -49,7 +48,7 @@ const LeadCard = ({ lead }: LeadCardProps) => {
   return (
     <div className="border-2 border-card-border rounded-xl p-2 bg-card-bg">
       <div className=" flex justify-between">
-        <div className="text-card-head font-bold">{lead.username}</div>
+        <div className="text-card-head font-bold">{lead.name}</div>
         <div className="flex gap-2">
           <PencilSquareIcon
             className="h-5 cursor-pointer text-blue-700 transition-transform hover:scale-110"
@@ -71,7 +70,7 @@ const LeadCard = ({ lead }: LeadCardProps) => {
       </div>
       <div className={iconLineClass}>
         <BuildingOfficeIcon className="h-4 text-green-900" />
-        {lead.name}
+        {lead.company}
       </div>
       <div>
         <span className="font-bold">Source:</span> {lead.website}
@@ -93,7 +92,7 @@ const LeadCard = ({ lead }: LeadCardProps) => {
       </div>
       {lead.notes && (
         <div>
-          <span className="font-bold">notes: {lead.notes}</span> leadStatus
+          <span className="font-bold">notes: {lead.notes}</span>
         </div>
       )}
       <FormModal
