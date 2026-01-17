@@ -12,5 +12,5 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  base: "/CRM-system",
+  base: "/CRM-System",
 });
