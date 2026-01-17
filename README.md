@@ -64,6 +64,7 @@ A CRM application that is built with responsiveness and user friendly features t
 -npm install to install dependencies
 -npm run dev to start the server
 -app runs on http://localhost:5173
+-app is hosted in https://naviralobo.github.io/CRM-System/ 
 
 ## screenshots
 
